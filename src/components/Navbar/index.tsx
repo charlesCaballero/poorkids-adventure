@@ -13,11 +13,12 @@ import {
 } from "@heroui/react";
 
 export const Logo = () => {
-  return <Image src={`/logo.png`} alt={"logo"} width={313} />;
+  return <Image src={`/logo.png`} alt={"logo"} width={250} />;
 };
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
 
   const menuItems = [
     { key: "home", label: "Home", url: "/", isActive: true },
@@ -36,14 +37,30 @@ export default function Navbar() {
     { key: "gallery", label: "Gallery", url: "/gallery", isActive: false },
   ];
 
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <CustomNavbar
-      isBordered
+      isBordered={false}
       maxWidth="full"
-      height={90}
+      height={75}
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       isBlurred={false}
+      className={`transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-md" : "bg-transparent"
+      }`}
     >
       <NavbarContent className="sm:hidden pr-3" justify="start">
         <NavbarBrand>
@@ -68,7 +85,13 @@ export default function Navbar() {
             }`}
           >
             <Link color="foreground" href={item.url}>
-              <p className="text-3xl text-[#00a0e3]">{item.label}</p>
+              <p
+                className={`text-2xl ${
+                  isScrolled ? "text-[#00a0e3]" : "text-white"
+                } tracking-wide `}
+              >
+                {item.label}
+              </p>
             </Link>
           </NavbarItem>
         ))}
