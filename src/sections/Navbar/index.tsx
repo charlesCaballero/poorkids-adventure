@@ -73,26 +73,27 @@ export default function Navbar() {
         />
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-0 items-end" justify="start">
+      <NavbarContent className="hidden sm:flex gap-1 items-end" justify="start">
         <NavbarBrand>
           <Logo />
         </NavbarBrand>
         {menuItems.map((item) => (
-          <NavbarItem
-            key={`${item.key}`}
-            className={`py-4 px-6 ${
-              item.isActive && "border-b-5 border-b-[#ffde59]"
-            }`}
-          >
+          <NavbarItem key={`${item.key}`} className="relative py-2 px-4 group ">
             <Link color="foreground" href={item.url}>
               <p
-                className={`text-2xl ${
-                  isScrolled ? "text-[#00a0e3]" : "text-white"
-                } tracking-wide `}
+                className={`text-2xl tracking-wide transition-colors duration-300 ${
+                  isScrolled ? "text-blue-500" : "text-white"
+                }`}
               >
                 {item.label}
               </p>
             </Link>
+            {/* Bottom Border Effect */}
+            <span
+              className={`absolute bottom-0 left-0 h-[5px] bg-[#ffde59] transition-all duration-300 ${
+                item.isActive ? "w-full" : "w-0 group-hover:w-full"
+              }`}
+            />
           </NavbarItem>
         ))}
       </NavbarContent>
@@ -101,7 +102,7 @@ export default function Navbar() {
         {menuItems.map((item) => (
           <NavbarMenuItem
             key={`${item.key}`}
-            className={`py-4 px-6 ${
+            className={`py-2 px-4 ${
               item.isActive && "border-l-5 border-l-[#ffde59]"
             }`}
           >
@@ -111,7 +112,7 @@ export default function Navbar() {
               href={item.url}
               size="lg"
             >
-              <p className="text-3xl text-[#00a0e3]">{item.label}</p>
+              <p className="text-3xl text-blue-500">{item.label}</p>
             </Link>
           </NavbarMenuItem>
         ))}

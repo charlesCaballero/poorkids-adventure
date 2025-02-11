@@ -4,12 +4,11 @@ import Image from "next/image";
 import { Button } from "@heroui/react";
 import { usePagination, PaginationItemType } from "@heroui/react";
 import { slides } from "./slides";
-import { ChevronIcon } from "./icons";
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
-  const { activePage, range, setPage, onNext, onPrevious } = usePagination({
+  const { range, setPage } = usePagination({
     total: slides.length,
     siblings: 1,
     boundaries: 1,
@@ -49,7 +48,7 @@ const Hero = () => {
             <Image
               fill
               objectFit="cover"
-              src="/images/overlay.png"
+              src="/hero-images/overlay.png"
               alt="overlay image"
             />
           </div>
@@ -57,8 +56,8 @@ const Hero = () => {
           {/* Text Overlay */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-yellow-500 p-6">
             <div className="flex flex-col gap-3 items-start justify-center w-full max-w-[1280px]">
-              <h1 className="text-9xl font-bold">{slide.title}</h1>
-              <p className="text-lg mb-4 max-w-2xl tracking-wide font-sans font-normal">
+              <h1 className="sm:text-9xl text-7xl font-bold">{slide.title}</h1>
+              <p className="sm:text-lg text-sm mb-4 max-w-2xl tracking-wide font-sans font-normal">
                 {slide.description}
               </p>
               <Button
