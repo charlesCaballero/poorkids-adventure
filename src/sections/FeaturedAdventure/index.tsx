@@ -4,9 +4,9 @@ import Image from "next/image";
 import { MapPin } from "lucide-react"; // Importing Location Pin Icon
 import React from "react";
 
-const Highlights = () => {
+const FeaturedAdventure = () => {
   return (
-    <div className="relative z-10 w-full">
+    <section className="relative z-10 w-full">
       <div className="h-screen"></div> {/* Filler Section */}
       <div className="bg-gray-100 flex flex-col items-center justify-start w-full px-4 md:px-8">
         <Spacer y={20} />
@@ -28,7 +28,8 @@ const Highlights = () => {
             <Image
               src="/highlights-images/peaktram.jpg"
               alt="Peak Tram"
-              layout="fill"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="rounded-lg shadow-lg object-cover"
             />
           </Card>
@@ -67,8 +68,8 @@ const Highlights = () => {
 
         <Spacer y={20} />
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Highlights;
+export default FeaturedAdventure;

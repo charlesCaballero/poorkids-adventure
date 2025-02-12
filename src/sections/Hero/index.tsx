@@ -26,7 +26,7 @@ const Hero = () => {
   }, [currentIndex, setPage]);
 
   return (
-    <div className="w-full">
+    <section className="w-full">
       {slides.map((slide, index) => (
         <div
           key={slide.id}
@@ -38,16 +38,17 @@ const Hero = () => {
           <Image
             fill
             src={slide.image}
-            objectFit="cover"
+            className="object-cover"
             alt="hero image"
             priority={index === 0}
           />
 
           {/* Overlay Image */}
-          <div className="inset-0 flex flex-col items-center justify-center p-6 bg-transparent">
+          <div className="absolute inset-0 flex flex-col items-center justify-center p-6 bg-transparent">
             <Image
               fill
-              objectFit="cover"
+              sizes="100vw"
+              className="object-cover"
               src="/hero-images/overlay.png"
               alt="overlay image"
             />
@@ -96,7 +97,7 @@ const Hero = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 

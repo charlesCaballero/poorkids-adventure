@@ -1,7 +1,8 @@
 import React from "react";
 import Navbar from "@/sections/Navbar";
 import Hero from "@/sections/Hero";
-import Highlights from "@/sections/Higlights";
+import FeaturedAdventure from "@/sections/FeaturedAdventure";
+import TravelHighlights from "@/sections/TravelHiglights";
 
 export default function App() {
   return (
@@ -13,7 +14,8 @@ export default function App() {
           <Hero />
         </div>
 
-        <Highlights />
+        <FeaturedAdventure />
+        <TravelHighlights />
       </main>
     </React.Fragment>
   );
