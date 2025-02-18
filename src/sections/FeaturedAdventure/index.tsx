@@ -8,12 +8,12 @@ const FeaturedAdventure = () => {
   return (
     <section className="relative z-10 w-full">
       <div className="h-screen"></div> {/* Filler Section */}
-      <div className="bg-gray-100 flex flex-col items-center justify-start w-full px-4 md:px-8">
+      <div className="bg-white flex flex-col items-center justify-start w-full px-4 md:px-8">
         <Spacer y={20} />
 
         {/* Title */}
-        <h2 className="text-6xl lg:text-7xl text-yellow-500 font-bold text-center">
-          Highlights
+        <h2 className="text-6xl lg:text-7xl text-[#ffde59] font-bold text-center">
+          Featured Adventure
         </h2>
 
         <Spacer y={20} />
@@ -43,12 +43,12 @@ const FeaturedAdventure = () => {
             {/* 📍 Location with Icon */}
             <div className="flex items-center gap-2 text-gray-500 mt-2">
               <MapPin size={20} className="text-red-500" />
-              <p className="font-sans text-sm font-normal">
+              <p className="lato text-sm font-normal">
                 33 Garden Rd, Central, Hong Kong
               </p>
             </div>
 
-            <p className="mt-3 text-gray-600 text-sm font-light font-sans leading-relaxed">
+            <p className="mt-3 text-gray-600 text-sm font-light lato leading-relaxed">
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,
               making it over 2000 years old. Richard McClintock, a Latin
@@ -58,7 +58,7 @@ const FeaturedAdventure = () => {
             </p>
 
             <Button
-              className="mt-5 w-fit px-6 py-2 font-sans text-black"
+              className="mt-5 w-fit px-6 py-2 lato text-black capitalize"
               color="primary"
             >
               Read more

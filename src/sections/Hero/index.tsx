@@ -1,12 +1,52 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Button } from "@heroui/react";
 import { usePagination, PaginationItemType } from "@heroui/react";
-import { slides } from "./slides";
 
-const Hero = () => {
-  const [currentIndex, setCurrentIndex] = React.useState(0);
+// Define types for the slide data structure
+interface Slide {
+  id: string;
+  image: string;
+  title: string;
+  description: string;
+}
+
+const FOLDER_ID = "1UksTZPR9Ow3DGDArsMlxgKo1rfE63Oe7"; // Your Google Drive folder ID
+const API_KEY = "AIzaSyA0YF9Co_gXAVgnTohX9H-KgUME23ilSbo"; // Your Google API key
+
+const formatTitle = (title: string) => {
+  return title
+    .split("_") // Split by underscore
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize first letter of each word
+    .join(" ") // Join the words with a space
+    .split(".")[0]; // Remove everything after the dot (extension)
+};
+
+const Hero: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [slides, setSlides] = useState<Slide[]>([]);
+
+  // Fetch images from Google Drive
+  const fetchImages = async (): Promise<void> => {
+    try {
+      const response = await fetch(
+        `https://www.googleapis.com/drive/v3/files?q='${FOLDER_ID}'+in+parents+and+mimeType contains 'image'&key=${API_KEY}&fields=files(id,name,description)`
+      );
+      const data = await response.json();
+
+      const imageSlides: Slide[] = data.files.map((file: any) => ({
+        id: file.id,
+        image: `https://drive.google.com/uc?export=view&id=${file.id}`, // Direct image URL
+        title: formatTitle(file.name), // Assuming file name is used as title
+        description: file.description, // Assuming file description is used as description
+      }));
+
+      setSlides(imageSlides);
+    } catch (error) {
+      console.error("Error fetching images from Google Drive:", error);
+    }
+  };
 
   const { range, setPage } = usePagination({
     total: slides.length,
@@ -15,7 +55,11 @@ const Hero = () => {
     showControls: false,
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (currentIndex + 1) % slides.length;
       setCurrentIndex(nextIndex);
@@ -23,7 +67,20 @@ const Hero = () => {
     }, 10000);
 
     return () => clearInterval(interval);
-  }, [currentIndex, setPage]);
+  }, [currentIndex, setPage, slides.length]);
+
+  useEffect(() => {
+    // Preload images only after they are fetched
+    slides.forEach((slide) => {
+      if (slide.image) {
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.href = slide.image;
+        link.as = "image";
+        document.head.appendChild(link);
+      }
+    });
+  }, [slides]);
 
   return (
     <section className="w-full">
@@ -40,7 +97,7 @@ const Hero = () => {
             src={slide.image}
             className="object-cover"
             alt="hero image"
-            priority={index === 0}
+            loading="lazy"
           />
 
           {/* Overlay Image */}
@@ -49,23 +106,19 @@ const Hero = () => {
               fill
               sizes="100vw"
               className="object-cover"
-              src="/hero-images/overlay.png"
+              src="/images/overlay.png"
               alt="overlay image"
             />
           </div>
 
           {/* Text Overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center text-yellow-500 p-6">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-[#ffde59] p-6">
             <div className="flex flex-col gap-3 items-start justify-center w-full max-w-[1280px]">
               <h1 className="sm:text-9xl text-7xl font-bold">{slide.title}</h1>
-              <p className="sm:text-lg text-sm mb-4 max-w-2xl tracking-wide font-sans font-normal">
+              <p className="sm:text-lg text-sm mb-4 max-w-2xl tracking-wide lato font-light">
                 {slide.description}
               </p>
-              <Button
-                color="primary"
-                size="lg"
-                className="font-sans text-black"
-              >
+              <Button color="primary" className="lato text-black capitalize">
                 See our Adventure
               </Button>
             </div>

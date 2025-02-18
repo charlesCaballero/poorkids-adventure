@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Spacer } from "@heroui/react";
+import { Card, Spacer } from "@heroui/react";
 import Image from "next/image";
 
 const FOLDER_ID = "1WX8Lj93-kYC9OcS2AMCP2mWwMTFzo9C5"; // Your Google Drive folder ID
@@ -49,9 +49,9 @@ const TravelHighlights = () => {
 
   return (
     <section className="relative z-10 w-full">
-      <div className="bg-white flex flex-col items-center justify-start w-full px-4 md:px-8">
+      <div className="bg-blue-50  flex flex-col items-center justify-start w-full px-4 md:px-8">
         <Spacer y={20} />
-        <h2 className="text-6xl lg:text-7xl text-yellow-500 font-bold text-center">
+        <h2 className="text-6xl lg:text-7xl text-[#ffde59] font-bold text-center">
           Travel Highlights
         </h2>
         <Spacer y={20} />
@@ -61,7 +61,7 @@ const TravelHighlights = () => {
           {randomPhotos.map((src, index) => (
             <Card
               key={index}
-              shadow="md"
+              shadow="lg"
               className="relative rounded-lg overflow-hidden h-[250px] w-full"
             >
               {src ? (
@@ -119,13 +119,7 @@ const TravelHighlights = () => {
             </Card>
           ))}
         </div>
-        {/* <Button
-          className="mt-5 w-fit px-6 py-2 font-sans text-black"
-          color="primary"
-          size="lg"
-        >
-          Go to Gallery
-        </Button> */}
+
         <Spacer y={20} />
       </div>
     </section>

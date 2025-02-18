@@ -70,6 +70,7 @@ export default function Navbar() {
       <NavbarContent className="sm:hidden" justify="end">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          className="text-black"
         />
       </NavbarContent>
 

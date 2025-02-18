@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/sections/Navbar";
+import Footer from "@/sections/Footer";
 
 const apricot = localFont({
   // src: "../fonts/Apricot.otf",
@@ -23,7 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${apricot.className} antialiased`}>{children}</body>
+      <body className={`${apricot.className} antialiased`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
