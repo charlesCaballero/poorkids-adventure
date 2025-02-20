@@ -49,7 +49,7 @@ const TravelHighlights = () => {
 
   return (
     <section className="relative z-10 w-full">
-      <div className="bg-blue-50  flex flex-col items-center justify-start w-full px-4 md:px-8">
+      <div className="bg-white  flex flex-col items-center justify-start w-full px-4 md:px-8">
         <Spacer y={20} />
         <h2 className="text-6xl lg:text-7xl text-[#ffde59] font-bold text-center">
           Travel Highlights
@@ -80,12 +80,12 @@ const TravelHighlights = () => {
         </div>
 
         {/* Grid Layout for Larger Screens */}
-        <div className="hidden md:grid grid-cols-6 grid-rows-6 gap-4 w-full max-w-6xl min-h-[calc(100vh-200px)]">
+        <div className="hidden md:grid grid-cols-6 grid-rows-6 gap-4 w-full max-w-7xl ">
           {randomPhotos.map((src, index) => (
             <Card
               key={index}
               shadow="md"
-              className="relative rounded-md overflow-hidden h-auto"
+              className="min-h-[15rem] relative rounded-md overflow-hidden h-auto"
               style={{
                 gridColumn: [
                   "span 2",
