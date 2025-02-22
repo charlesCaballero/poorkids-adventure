@@ -38,10 +38,10 @@ const BucketList = () => {
             </CardHeader>
             <div className="relative w-full h-full overflow-hidden">
               <Image
-                src={"/bucketlist-images/shanghai.jpg"}
+                src="/bucketlist-images/shanghai.jpg"
                 alt="Shanghai"
                 fill
-                sizes="100vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
               />
             </div>
@@ -72,40 +72,101 @@ const BucketList = () => {
             </CardHeader>
             <div className="relative w-full h-full overflow-hidden">
               <Image
-                src={"/bucketlist-images/shanghai.jpg"}
+                src="/bucketlist-images/shanghai.jpg"
                 alt="Shanghai"
                 fill
-                sizes="100vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
               />
             </div>
           </Card>
 
           {/* Smaller Cards */}
-          {[4, 5, 6, 7].map((order) => (
-            <Card
-              key={order}
-              className={`min-h-[12rem] col-span-1 sm:col-span-1 sm:row-span-1 md:col-span-1 md:row-span-1 rounded-lg shadow-lg order-${order} `}
-            >
-              <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-                <p className="lato text-tiny text-white/60 uppercase font-bold">
-                  CHINA
-                </p>
-                <h4 className="lato text-white font-medium text-large">
-                  Shanghai
-                </h4>
-              </CardHeader>
-              <div className="relative w-full h-full overflow-hidden">
-                <Image
-                  src={"/bucketlist-images/shanghai.jpg"}
-                  alt="Shanghai"
-                  fill
-                  sizes="100vw"
-                  className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
-                />
-              </div>
-            </Card>
-          ))}
+          <Card
+            className={`min-h-[12rem] col-span-1 sm:col-span-1 sm:row-span-1 md:col-span-1 md:row-span-1 rounded-lg shadow-lg order-4`}
+          >
+            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+              <p className="lato text-tiny text-white/60 uppercase font-bold">
+                CHINA
+              </p>
+              <h4 className="lato text-white font-medium text-large">
+                Shanghai
+              </h4>
+            </CardHeader>
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src="/bucketlist-images/shanghai.jpg"
+                alt="Shanghai"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+              />
+            </div>
+          </Card>
+          <Card
+            className={`min-h-[12rem] col-span-1 sm:col-span-1 sm:row-span-1 md:col-span-1 md:row-span-1 rounded-lg shadow-lg order-5`}
+          >
+            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+              <p className="lato text-tiny text-white/60 uppercase font-bold">
+                CHINA
+              </p>
+              <h4 className="lato text-white font-medium text-large">
+                Shanghai
+              </h4>
+            </CardHeader>
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src="/bucketlist-images/shanghai.jpg"
+                alt="Shanghai"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+              />
+            </div>
+          </Card>
+          <Card
+            className={`min-h-[12rem] col-span-1 sm:col-span-1 sm:row-span-1 md:col-span-1 md:row-span-1 rounded-lg shadow-lg order-6`}
+          >
+            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+              <p className="lato text-tiny text-white/60 uppercase font-bold">
+                CHINA
+              </p>
+              <h4 className="lato text-white font-medium text-large">
+                Shanghai
+              </h4>
+            </CardHeader>
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src="/bucketlist-images/shanghai.jpg"
+                alt="Shanghai"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+              />
+            </div>
+          </Card>
+
+          <Card
+            className={`min-h-[12rem] col-span-1 sm:col-span-1 sm:row-span-1 md:col-span-1 md:row-span-1 rounded-lg shadow-lg order-7`}
+          >
+            <CardHeader className="absolute z-10 top-1 flex-col !items-start">
+              <p className="lato text-tiny text-white/60 uppercase font-bold">
+                CHINA
+              </p>
+              <h4 className="lato text-white font-medium text-large">
+                Shanghai
+              </h4>
+            </CardHeader>
+            <div className="relative w-full h-full overflow-hidden">
+              <Image
+                src="/bucketlist-images/shanghai.jpg"
+                alt="Shanghai"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover transition-transform duration-500 ease-in-out hover:scale-110"
+              />
+            </div>
+          </Card>
         </motion.div>
 
         <Spacer y={20} />

@@ -69,8 +69,9 @@ const TravelHighlights = () => {
                   src={src}
                   alt={`Travel ${index + 1}`}
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
+                  priority
                 />
               ) : (
                 <div className="w-full h-full bg-gray-300" />
@@ -112,6 +113,7 @@ const TravelHighlights = () => {
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
                   className="object-cover"
+                  priority
                 />
               ) : (
                 <div className="w-full h-full bg-gray-300" />

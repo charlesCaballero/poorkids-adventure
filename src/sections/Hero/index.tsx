@@ -108,6 +108,7 @@ const Hero: React.FC = () => {
               className="object-cover"
               src="/images/overlay.png"
               alt="overlay image"
+              priority
             />
           </div>
 

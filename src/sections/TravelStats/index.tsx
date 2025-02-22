@@ -1,44 +1,67 @@
 "use client";
+import { FaGlobeAmericas, FaLandmark, FaPlaneDeparture } from "react-icons/fa";
 import { Spacer } from "@heroui/react";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 import React from "react";
 
 const TravelStats: React.FC = () => {
-  // Static values (You can later fetch these from an API or database)
   const stats = {
     countries: 3,
     spots: 45,
     distance: 38500, // in km
   };
 
+  // Intersection Observer Hook
+  const { ref, inView } = useInView({
+    triggerOnce: true, // Ensures animation runs only once
+    threshold: 0.3, // Triggers when 30% of the section is visible
+  });
+
   return (
-    <section className="relative z-10 w-full">
+    <section ref={ref} className="relative z-10 w-full">
       <div className="bg-gradient-to-r from-blue-600 to-blue-900 flex flex-col items-center justify-start w-full px-4 md:px-8">
         <Spacer y={20} />
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-20">
           {/* Countries Visited */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="lato text-3xl font-bold text-blue-600">
-              {stats.countries}+
+          <div className="p-6 text-center">
+            <FaGlobeAmericas className="text-yellow-500 text-5xl mx-auto mb-5" />
+            <h3 className="lato text-4xl font-bold text-yellow-500">
+              <CountUp
+                start={0}
+                end={inView ? stats.countries : 0}
+                duration={5}
+              />
             </h3>
-            <p className="text-gray-600 lato font-light">Countries Visited</p>
+            <p className="text-yellow-500 lato font-normal">
+              Countries Visited
+            </p>
           </div>
 
           {/* Tourist Spots */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="lato text-3xl font-bold text-green-600">
-              {stats.spots}+
+          <div className="p-6 text-center">
+            <FaLandmark className="text-yellow-500 text-5xl mx-auto mb-5" />
+            <h3 className="lato text-4xl font-bold text-yellow-500">
+              <CountUp start={0} end={inView ? stats.spots : 0} duration={3} />+
             </h3>
-            <p className="text-gray-600 lato font-light">
+            <p className="text-yellow-500 lato font-normal">
               Tourist Spots Explored
             </p>
           </div>
 
           {/* Total Distance Traveled */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <h3 className="lato text-3xl font-bold text-yellow-600">
-              {stats.distance.toLocaleString()} km
+          <div className="p-6 text-center">
+            <FaPlaneDeparture className="text-yellow-500 text-5xl mx-auto mb-5" />
+            <h3 className="lato text-4xl font-bold text-yellow-500">
+              <CountUp
+                start={0}
+                end={inView ? stats.distance : 0}
+                duration={3}
+                separator=","
+              />
+              + km
             </h3>
-            <p className="text-gray-600 lato font-light">
+            <p className="text-yellow-500 lato font-normal">
               Total Distance Traveled
             </p>
           </div>
