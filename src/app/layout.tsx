@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${apricot.className} antialiased`}>
+      <body className={`${apricot.className} antialiased bg-white`}>
         <Navbar />
         {children}
         <Footer />

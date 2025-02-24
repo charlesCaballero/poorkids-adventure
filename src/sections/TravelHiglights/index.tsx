@@ -86,7 +86,7 @@ const TravelHighlights = () => {
             <Card
               key={index}
               shadow="md"
-              className="min-h-[15rem] relative rounded-md overflow-hidden h-auto"
+              className="min-h-[10rem] relative rounded-md overflow-hidden h-auto"
               style={{
                 gridColumn: [
                   "span 2",
