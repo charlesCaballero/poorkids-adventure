@@ -15,7 +15,7 @@ const PlacesVisited: React.FC = () => {
     <section className="relative z-10 w-full">
       <div className="bg-gradient-to-r from-blue-600 to-blue-900 flex flex-col items-center justify-center w-full px-4 sm:px-8">
         <Spacer y={20} />
-        <div className="flex items-center tracking-wider gap-2 w-full max-w-7xl">
+        <div className="flex items-center justify-center tracking-wider gap-2 w-full max-w-7xl">
           <h2 className="text-3xl lg:text-5xl text-white font-bold">
             Journey Through Wonders
           </h2>
@@ -24,10 +24,16 @@ const PlacesVisited: React.FC = () => {
             Unforgettable Destinations
           </h2>
         </div>
+        <Spacer y={10} />
+
         <div className="relative w-full max-w-7xl">
           <Tabs
             aria-label="Options"
-            classNames={{ tabContent: "text-black lato font-light" }}
+            classNames={{
+              base: "justify-center items-center w-full",
+              // tabList: "bg-yellow-400",
+              tabContent: "text-black lato font-light",
+            }}
           >
             <Tab key="singapore" title="Singapore">
               <div className="relative">
