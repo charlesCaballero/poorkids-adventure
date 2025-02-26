@@ -31,7 +31,7 @@ export default function AdventuresHero() {
           <h2 className="text-5xl lg:text-7xl font-bold text-blue-500">
             Relive the Moments !
           </h2>
-          <p className="mt-10 lato text-md font-light text-gray-500">
+          <p className="mt-10 lato text-md font-light text-gray-500 md:pr-40">
             Every journey is a story waiting to be told. From breathtaking
             landscapes to hidden gems, these snapshots hold the magic of
             adventure—each one a memory, a thrill, and an invitation to explore
@@ -47,7 +47,7 @@ export default function AdventuresHero() {
           transition={{ duration: 1 }}
         >
           <div className="relative w-full flex justify-center items-center py-[5rem] px-[1.5rem]">
-            <div className="relative w-full max-w-4xl h-[31.25rem]">
+            <div className="relative w-full max-w-4xl h-[35rem]">
               {/* Large Image */}
               <div className="relative w-full h-full">
                 <Image
@@ -55,30 +55,30 @@ export default function AdventuresHero() {
                   alt="Shanghai"
                   fill
                   objectFit="cover"
-                  sizes="(max-width: 48rem) 60vw, (max-width: 75rem) 40vw, 30vw"
+                  sizes="(max-width: 48rem) 60vw, (max-width: 35rem) 40vw, 30vw"
                   className="rounded-lg shadow-lg "
                 />
               </div>
 
               {/* Overlapping Small Image 1 (Larger) */}
-              <div className="absolute -bottom-[2.5rem] -left-[2.5rem] w-[15.625rem] h-[15.625rem]">
+              <div className="absolute top-80 -left-[2.5rem] w-[18rem] h-[18rem]">
                 <Image
                   src="/bucketlist-images/shanghai.jpg"
                   alt="Shanghai Adventure"
-                  width={250}
-                  height={250}
+                  width={350}
+                  height={350}
                   objectFit="cover"
                   className="rounded-lg shadow-lg "
                 />
               </div>
 
               {/* Overlapping Small Image 2 (Smaller) */}
-              <div className="absolute -top-[2.5rem] -right-[2.5rem] w-[11.25rem] h-[11.25rem]">
+              <div className="absolute -top-[2.5rem] -right-[2.5rem] w-[15rem] h-[15rem]">
                 <Image
                   src="/bucketlist-images/shanghai.jpg"
                   alt="Shanghai View"
-                  width={180}
-                  height={180}
+                  width={280}
+                  height={280}
                   objectFit="cover"
                   className="rounded-lg shadow-lg "
                 />
