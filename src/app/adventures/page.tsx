@@ -1,5 +1,6 @@
 import AdventuresHero from "@/sections/AdventuresHero";
 import PlacesVisited from "@/sections/PlacesVisited";
+import TravelStories from "@/sections/TravelStories";
 import React from "react";
 
 const AdventuresPage = () => {
@@ -7,6 +8,7 @@ const AdventuresPage = () => {
     <div>
       <AdventuresHero />
       <PlacesVisited />
+      <TravelStories />
     </div>
   );
 };

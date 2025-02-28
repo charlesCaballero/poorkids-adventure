@@ -15,11 +15,11 @@ const PlacesVisited: React.FC = () => {
     <section className="relative z-10 w-full">
       <div className="bg-gradient-to-r from-blue-600 to-blue-900 flex flex-col items-center justify-center w-full px-4 sm:px-8">
         <Spacer y={20} />
-        <div className="flex items-center justify-center tracking-wider gap-2 w-full max-w-7xl">
-          <h2 className="text-3xl lg:text-5xl text-white font-bold">
+        <div className="flex flex-col sm:flex-row items-center justify-center tracking-wider gap-2 w-full max-w-7xl">
+          <h2 className="text-4xl lg:text-5xl text-white font-bold">
             Journey Through Wonders
           </h2>
-          <span className="text-8xl text-white">:</span>
+          <span className="hidden sm:block text-8xl text-white">:</span>
           <h2 className="text-3xl lg:text-5xl text-[#ffde59] font-bold text-center">
             Unforgettable Destinations
           </h2>
@@ -41,9 +41,8 @@ const PlacesVisited: React.FC = () => {
                   effect={"coverflow"}
                   grabCursor={true}
                   centeredSlides={true}
-                  slidesPerView={3}
-                  spaceBetween={15}
                   loop={true}
+                  spaceBetween={15}
                   coverflowEffect={{
                     rotate: 50,
                     stretch: -50,
@@ -53,7 +52,12 @@ const PlacesVisited: React.FC = () => {
                   }}
                   pagination={{ clickable: true, dynamicBullets: true }}
                   modules={[EffectCoverflow, Pagination]}
-                  className="w-full max-w-7xl "
+                  className="w-full max-w-7xl"
+                  breakpoints={{
+                    320: { slidesPerView: 1, spaceBetween: 10 }, // Mobile
+                    640: { slidesPerView: 2, spaceBetween: 15 }, // Tablets
+                    1024: { slidesPerView: 3, spaceBetween: 20 }, // Desktops
+                  }}
                 >
                   {[...Array(totalCards)].map((_, index) => (
                     <SwiperSlide
@@ -65,7 +69,6 @@ const PlacesVisited: React.FC = () => {
                         className="w-full h-full flex-shrink-0 rounded-none"
                       >
                         <Image
-                          //   removeWrapper
                           alt="Destination"
                           className="z-0 w-full h-full object-cover rounded-none"
                           src="https://heroui.com/images/card-example-5.jpeg"
@@ -95,9 +98,8 @@ const PlacesVisited: React.FC = () => {
                   effect={"coverflow"}
                   grabCursor={true}
                   centeredSlides={true}
-                  slidesPerView={3}
-                  spaceBetween={20}
                   loop={true}
+                  spaceBetween={15}
                   coverflowEffect={{
                     rotate: 50,
                     stretch: -50,
@@ -105,12 +107,14 @@ const PlacesVisited: React.FC = () => {
                     modifier: 1,
                     slideShadows: true,
                   }}
-                  pagination={{
-                    clickable: true,
-                    dynamicBullets: true,
-                  }}
+                  pagination={{ clickable: true, dynamicBullets: true }}
                   modules={[EffectCoverflow, Pagination]}
-                  className="w-full pt- max-w-7xl "
+                  className="w-full max-w-7xl"
+                  breakpoints={{
+                    320: { slidesPerView: 1, spaceBetween: 10 }, // Mobile
+                    640: { slidesPerView: 2, spaceBetween: 15 }, // Tablets
+                    1024: { slidesPerView: 3, spaceBetween: 20 }, // Desktops
+                  }}
                 >
                   {[...Array(totalCards)].map((_, index) => (
                     <SwiperSlide
@@ -152,9 +156,8 @@ const PlacesVisited: React.FC = () => {
                   effect={"coverflow"}
                   grabCursor={true}
                   centeredSlides={true}
-                  slidesPerView={3}
-                  spaceBetween={20}
                   loop={true}
+                  spaceBetween={15}
                   coverflowEffect={{
                     rotate: 50,
                     stretch: -50,
@@ -164,7 +167,12 @@ const PlacesVisited: React.FC = () => {
                   }}
                   pagination={{ clickable: true, dynamicBullets: true }}
                   modules={[EffectCoverflow, Pagination]}
-                  className="w-full max-w-7xl "
+                  className="w-full max-w-7xl"
+                  breakpoints={{
+                    320: { slidesPerView: 1, spaceBetween: 10 }, // Mobile
+                    640: { slidesPerView: 2, spaceBetween: 15 }, // Tablets
+                    1024: { slidesPerView: 3, spaceBetween: 20 }, // Desktops
+                  }}
                 >
                   {[...Array(totalCards)].map((_, index) => (
                     <SwiperSlide
