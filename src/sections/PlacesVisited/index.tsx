@@ -13,14 +13,14 @@ const PlacesVisited: React.FC = () => {
 
   return (
     <section className="relative z-10 w-full">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-900 flex flex-col items-center justify-center w-full px-4 sm:px-8">
+      <div className=" flex flex-col items-center justify-center w-full px-4 sm:px-8">
         <Spacer y={20} />
         <div className="flex flex-col sm:flex-row items-center justify-center tracking-wider gap-2 w-full max-w-7xl">
-          <h2 className="text-4xl lg:text-5xl text-white font-bold">
+          <h2 className="text-4xl lg:text-6xl text-blue-500 font-bold">
             Journey Through Wonders
           </h2>
-          <span className="hidden sm:block text-8xl text-white">:</span>
-          <h2 className="text-3xl lg:text-5xl text-[#ffde59] font-bold text-center">
+          <span className="hidden sm:block text-8xl text-blue-500">:</span>
+          <h2 className="text-4xl lg:text-6xl text-[#ffde59] font-bold text-center">
             Unforgettable Destinations
           </h2>
         </div>

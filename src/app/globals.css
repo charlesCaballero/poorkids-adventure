@@ -25,7 +25,3 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.swiper-pagination-bullet-active {
-  background: var(--background) !important;
-}
